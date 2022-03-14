@@ -1,6 +1,6 @@
 package project_app
 
 class CustomerController {
-    static scaffold = Customer
-    //def index() { }
+    //static scaffold = Customer
+    def checkin() { }
 }
