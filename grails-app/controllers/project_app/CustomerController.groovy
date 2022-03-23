@@ -3,15 +3,22 @@ package project_app
 class CustomerController {
     static scaffold = Customer
 
+    def calculationsService
+
     def lookup() {
         def customerInstance = Customer.list()
         [customerInstanceList: customerInstance]
     }
 
+    def customerLookup(Customer lookupInstance){
+        def (customerInstance, welcomeMessage) = calculationsService.processCheckin(lookupInstance)
+        render (view: "checkin", model: [customerInstance: customerInstance, welcomeMessage: welcomeMessage])
+    }
+
     def checkin() { }
 
-    def index() {
-        params.max = 10
-        [customerInstanceList: Customer.list(params), customerInstanceCount: Customer.count()]
+    def profile() {
+        def customerInstance = Customer.findByPhone(params.id)
+        [customerInstance: customerInstance]
     }
 }

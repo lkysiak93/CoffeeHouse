@@ -7,12 +7,12 @@
 
     <div class="row"> <!-- First row -->
         <div class="col-sm-6">
-            <h4>Welcome back Luk.</h4>
-            <p><h4>You have 3 points.</h4></p>
+            <h4>${welcomeMessage}</h4>
+
         </div>
 
         <div class="col-sm-6"> <!-- Right column-->
-            <g:textField name="phone" class="form-control" placeholder="Enter your cell number to check in"/>
+            <g:textField name="phone" class="form-control" placeholder="Enter your cell number to check in" value="${customerInstance?.phone}"/>
             <div class="row">
                 <h1></h1>
             </div>
@@ -60,13 +60,13 @@
             </div>
             <div class="row"> <!-- Fourth Button Row Spacer -->
                 <div class = "col-sm-4">
-                    <input class="btn btn-danger btn-lg btn-block" type="button" name="pad" value="Del" onclick="clearPhone()"/>
+                <g:link class="btn btn-danger btn-lg btn-block" action="checkin">Del</g:link>
                 </div>
                 <div class = "col-sm-4">
                     <input class="btn btn-primary btn-lg btn-block" type="button" name="pad" value="0" onclick="padkey(this.value)"/>
                 </div>
                 <div class = "col-sm-4">
-                    <input class="btn btn-success btn-lg btn-block" type="button" name="pad" value="Go" onclick="padkey(this.value)"/>
+                    <g:submitButton class="btn btn-success btn-lg btn-block" name="pad" value="Go" />
                 </div>
             </div>
         </div><!-- End right column-->
