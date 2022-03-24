@@ -21,4 +21,9 @@ class CustomerController {
         def customerInstance = Customer.findByPhone(params.id)
         [customerInstance: customerInstance]
     }
+
+    def updateProfile(Customer customerInstance){
+        customerInstance.save()
+        render(view: "profile", model:[customerInstance: customerInstance])
+    }
 }
